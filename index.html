@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oeste Futebol Clube - O Maior do Mundo</title>
+    <link rel="icon" type="im/x-icon" href="img/central.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0 30px;
+            text-align: center;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            background: #8B0000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        .logo-image {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 10px 0;
+            text-shadow: 3px 3px 0 #8B0000;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #8B0000, transparent);
+        }
+
+        .content {
+            max-width: 800px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .slogan {
+            font-size: 1.8rem;
+            margin: 30px 0;
+            line-height: 1.4;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            font-weight: 700;
+        }
+
+        .slogan span {
+            display: block;
+            font-size: 2.2rem;
+            margin-top: 10px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #8B0000;
+        }
+
+        .cta-container {
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #8B0000 0%, #600000 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+            border: 2px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.6);
+            background: linear-gradient(135deg, #a00 0%, #700000 100%);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button i {
+            font-size: 1.8rem;
+        }
+
+        .cta-button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.4s;
+        }
+
+        .cta-button:hover::after {
+            left: 120%;
+        }
+
+        .history {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            border-left: 4px solid #8B0000;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .history p {
+            margin-bottom: 15px;
+        }
+
+        .history strong {
+            color: #FFD700;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            width: 100%;
+            border-top: 1px solid rgba(139, 0, 0, 0.3);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #8B0000;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #a00;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .slogan {
+                font-size: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .logos {
+                gap: 20px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .slogan {
+                font-size: 1.3rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+            
+            .history {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logos">
+            <div class="logo" title="Escudo do Oeste Futebol Clube">
+                <img src="img/oeste.png" alt="Escudo do Oeste FC" class="logo-image">
+            </div>
+            <div class="logo" title="Escudo do Central do Oeste">
+                <img src="img/central.jpg" alt="Escudo do Central do Oeste" class="logo-image">
+            </div>
+        </div>
+        <h1>Oeste Futebol Clube</h1>
+    </div>
+
+    <div class="content">
+        <div class="slogan">
+            Orgulho, Paixão e Tradição<br>
+            <span>O MAIOR CLUBE DO MUNDO</span>
+        </div>
+
+        <div class="cta-container">
+            <a href="https://x.com/CentralDoOeste?t=a2J8w_GAChwH2MMrU76giA&s=09" target="_blank" class="cta-button">
+                <i class="fab fa-twitter"></i>
+                VER A MAIOR PÁGINA DO OESTE FC
+            </a>
+        </div>
+
+        <div class="history">
+            <p>Fundado em 25 de Janeiro de 1921, o <strong>Oeste Futebol Clube</strong> é uma das instituições esportivas mais tradicionais e respeitadas do futebol brasileiro.</p>
+            
+            <p>Conhecido como <strong>"O Maior do Mundo"</strong> por sua torcida apaixonada, o clube tem uma história marcada por glórias, superações e uma identidade única baseada nas cores <strong>vermelho e preto</strong>.</p>
+            
+            <p>O Oeste FC já conquistou títulos importantes e revelou grandes talentos do futebol nacional, sempre mantendo viva a chama da paixão que move sua torcida.</p>
+        </div>
+    </div>
+
+    <div class="social-icons">
+      
+        <a href="https://t.co/kqp9Ou1BSF" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/CentralDoOeste?t=a2J8w_GAChwH2MMrU76giA&s=09" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+       
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Oeste Futebol Clube - Todos os direitos reservados</p>
+        <p>Orgulhosamente vermelho e preto desde 1921</p>
+    </div>
+</body>
+</html>
